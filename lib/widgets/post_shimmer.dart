@@ -21,7 +21,7 @@ class PostShimmer extends StatelessWidget {
         highlightColor: AppColors.primary,
         child: Container(
           margin: EdgeInsets.symmetric(vertical: screenWidth * 0.02),
-          height: screenWidth * 0.25,
+          height: screenWidth * 0.5,
           decoration: BoxDecoration(
             color: AppColors.secondary,
             borderRadius: BorderRadius.circular(12),
