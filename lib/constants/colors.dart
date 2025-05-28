@@ -13,17 +13,12 @@ class AppColors {
   static const Color error = Color(0xFFCC5C5C);
 
   // New colors for search bottom sheet
-  static const Color searchFieldBackground =
-      Color(0xFFF7F7F7); // Light gray background for input fields
-  static const Color searchFieldBorder =
-      Color(0xFFCCCCCC); // Light gray border for inputs
+  static const Color searchFieldBackground = Color(0xFFF7F7F7);
+  static const Color searchFieldBorder = Color(0xFFCCCCCC);
 
-  static const Color searchButtonBackground =
-      Color(0xFF3C3C3C); // Dark color for search button background
-  static const Color searchButtonText =
-      Colors.white; // White text on search button
+  static const Color searchButtonBackground = Color(0xFF3C3C3C);
+  static const Color searchButtonText = Colors.white;
 
-  static const Color clearButtonBackground =
-      Color(0xFFE7D7C9); // Light accent color for clear button
+  static const Color clearButtonBackground = Color(0xFFE7D7C9);
   static const Color clearButtonText = Color(0xFF5E564F);
 }

@@ -6,7 +6,7 @@ import '../providers/post_providers.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/post_card.dart';
 import '../widgets/post_shimmer.dart';
-import '../widgets/post_search_dialog.dart'; // Make sure this is the updated version
+import '../widgets/post_search_dialog.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -37,8 +37,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final allPostsAsync = ref.watch(postsProvider); // raw async post state
-    final filteredPosts = ref.watch(filteredPostsProvider); // displayed list
+    final allPostsAsync = ref.watch(postsProvider);
+    final filteredPosts = ref.watch(filteredPostsProvider);
 
     return Scaffold(
       backgroundColor: AppColors.primary,
@@ -57,7 +57,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           left: MediaQuery.of(context).size.width * 0.1,
                           right: MediaQuery.of(context).size.width * 0.1,
                         ),
-                        child: Text(
+                        child: const Text(
                           'No matching posts found.',
                           textAlign: TextAlign.center,
                           style: const TextStyle(

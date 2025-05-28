@@ -18,7 +18,6 @@ class PostService {
         },
       );
 
-      print('parsed url is: ${Uri.parse(baseUrl)}');
       if (responses.statusCode == 200) {
         final List data = json.decode(responses.body);
         return data.map((e) => PostModel.fromJson(e)).toList();
