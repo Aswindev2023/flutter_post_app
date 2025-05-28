@@ -7,6 +7,7 @@ import '../models/post_model.dart';
 class PostService {
   final String baseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
+  /// Fetch all posts from the API
   Future<List<PostModel>> fetchPosts() async {
     try {
       final responses = await http.get(
@@ -27,5 +28,18 @@ class PostService {
     } catch (e) {
       throw Exception('Network error: $e');
     }
+  }
+
+  /// Filter a list of posts locally based on optional userId and postId
+  List<PostModel> searchPostsLocally({
+    required List<PostModel> posts,
+    int? userId,
+    int? postId,
+  }) {
+    return posts.where((post) {
+      final matchesUserId = userId == null || post.userId == userId;
+      final matchesPostId = postId == null || post.id == postId;
+      return matchesUserId && matchesPostId;
+    }).toList();
   }
 }
