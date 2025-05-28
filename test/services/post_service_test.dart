@@ -9,6 +9,19 @@ void main() {
     postService = PostService();
   });
 
+  group('fetchPosts', () {
+    test('should fetch 100 posts from the API', () async {
+      final posts = await postService.fetchPosts();
+      expect(posts.length, 100);
+      expect(posts.first, isA<PostModel>());
+    });
+
+    test('should throw an exception if the API fails', () async {
+      final invalidService = PostService(baseUrl: 'https://invalid.url/posts');
+      expect(() async => await invalidService.fetchPosts(), throwsException);
+    });
+  });
+
   group('searchPostsLocally', () {
     final samplePosts = [
       PostModel(userId: 1, id: 1, title: 'Post 1', body: 'Body 1'),

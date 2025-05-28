@@ -5,7 +5,11 @@ import 'package:http/http.dart' as http;
 import '../models/post_model.dart';
 
 class PostService {
-  final String baseUrl = 'https://jsonplaceholder.typicode.com/posts';
+  final String baseUrl;
+
+  // Accept baseUrl optionally for testing flexibility
+  PostService({String? baseUrl})
+      : baseUrl = baseUrl ?? 'https://jsonplaceholder.typicode.com/posts';
 
   /// Fetch all posts from the API
   Future<List<PostModel>> fetchPosts() async {
