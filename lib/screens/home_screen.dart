@@ -60,7 +60,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         child: const Text(
                           'No matching posts found.',
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
                             color: AppColors.textSecondary,
                           ),

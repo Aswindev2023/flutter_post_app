@@ -35,10 +35,14 @@ class PostService {
     int? userId,
     int? postId,
   }) {
-    return posts.where((post) {
-      final matchesUserId = userId == null || post.userId == userId;
-      final matchesPostId = postId == null || post.id == postId;
-      return matchesUserId && matchesPostId;
-    }).toList();
+    if (postId != null) {
+      return posts.where((post) => post.id == postId).toList();
+    }
+
+    if (userId != null) {
+      return posts.where((post) => post.userId == userId).toList();
+    }
+
+    return posts;
   }
 }
