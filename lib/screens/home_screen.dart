@@ -17,12 +17,12 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   bool _isRefreshing = false;
 
+  //For pull-refresh functionality
   Future<void> _refreshPosts() async {
     setState(() => _isRefreshing = true);
-    await Future.delayed(
-        const Duration(milliseconds: 100)); // allow shimmer to render
-    ref.invalidate(postsProvider); // trigger a reload
-    await Future.delayed(const Duration(milliseconds: 400)); // wait for refresh
+    await Future.delayed(const Duration(milliseconds: 100));
+    ref.invalidate(postsProvider);
+    await Future.delayed(const Duration(milliseconds: 400));
     setState(() => _isRefreshing = false);
   }
 
@@ -67,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     style: const TextStyle(color: AppColors.error),
                   ),
                 ),
-                loading: () => const PostShimmer(), // fallback if needed
+                loading: () => const PostShimmer(),
               ),
       ),
     );
