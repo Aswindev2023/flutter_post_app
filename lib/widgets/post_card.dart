@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/post_model.dart';
+import '../constants/colors.dart';
 
+/// A styled card to display each post item
 class PostCard extends StatelessWidget {
   final PostModel post;
 
@@ -8,22 +10,45 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      color: AppColors.secondary,
+      margin: EdgeInsets.symmetric(
+        horizontal: screenWidth * 0.05,
+        vertical: screenWidth * 0.02,
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.all(screenWidth * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Post ID: ${post.id} | User ID: ${post.userId}',
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-            const SizedBox(height: 8),
-            Text(post.title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-            const SizedBox(height: 6),
-            Text(post.body, style: const TextStyle(fontSize: 14)),
+            Text(
+              'Post ID: ${post.id} | User ID: ${post.userId}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: screenWidth * 0.035,
+                color: AppColors.textSecondary,
+              ),
+            ),
+            SizedBox(height: screenWidth * 0.02),
+            Text(
+              post.title,
+              style: TextStyle(
+                fontSize: screenWidth * 0.045,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textPrimary,
+              ),
+            ),
+            SizedBox(height: screenWidth * 0.015),
+            Text(
+              post.body,
+              style: TextStyle(
+                fontSize: screenWidth * 0.04,
+                color: AppColors.textSecondary,
+              ),
+            ),
           ],
         ),
       ),
